@@ -7,9 +7,9 @@ pipeline {
             steps{
                
                 //Fisrt, drop the directory if exists
-                sh 'rm -rf /home/jenkins/tomcat-web'
+                sh 'rm -rf /home/rafaelpolo/Documentos/Estudio/install/Jenkins/tomcat'
                 //Create the directory
-                sh 'mkdir /home/jenkins/tomcat-web'
+                sh 'mkdir /home/rafaelpolo/Documentos/Estudio/install/Jenkins/tomcat'
                 
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         stage('Create the Tomcat container') {
             steps {
             echo 'Creating the container...'
-            sh 'docker run -dit --name tomcat1 -p 9090:8080  -v /home/jenkins/tomcat-web:/usr/local/tomcat/webapps tomcat:9.0'
+            sh 'docker run -dit --name tomcat1 -p 9090:8080  -v /home/rafaelpolo/Documentos/Estudio/install/Jenkins/tomcat:/usr/local/tomcat/webapps tomcat:9.0'
             }
         }
         stage('Copy the web application to the container directory') {
@@ -30,7 +30,7 @@ pipeline {
                 echo 'Creating the shopping folder in the container'
                 sh 'mkdir /home/jenkins/tomcat-web/shopping'
                 echo 'Copying web application...'             
-                sh 'cp -r shopping/* /home/jenkins/tomcat-web/shopping'
+                sh 'cp -r shopping/* /home/rafaelpolo/Documentos/Estudio/install/Jenkins/tomcat/shopping'
             }
         }
     }

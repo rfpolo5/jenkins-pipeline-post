@@ -39,7 +39,7 @@ pipeline {
         always {
 
             echo "depura ws"
-            cleanWs
+            cleanWs()
         
         }
         success {

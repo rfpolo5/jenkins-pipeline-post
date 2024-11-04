@@ -36,6 +36,11 @@ pipeline {
     }
 
     post {
+        always {
+
+            echo "ejecuta"
+        
+        }
         success {
         // One or more steps need to be included within each condition's block.
         echo 'the deployment has worked'

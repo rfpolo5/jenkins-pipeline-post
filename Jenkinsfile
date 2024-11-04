@@ -38,7 +38,8 @@ pipeline {
     post {
         always {
 
-            echo "ejecuta"
+            echo "depura ws"
+            cleanWs
         
         }
         success {
